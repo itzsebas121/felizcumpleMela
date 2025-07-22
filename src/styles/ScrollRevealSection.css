@@ -1,0 +1,119 @@
+.scroll-reveal-section {
+  min-height: 800vh; /* Increased height for more scroll space and delay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start to allow for vertical spacing */
+  padding: 80px 20px;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  /* IMPORTANT: No background-color here. Let the HeartBackground show through. */
+  /* No backdrop-filter here either, as it would blur the hearts. */
+}
+
+.scroll-reveal-content {
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 300px; /* Increased gap between phrases for more distinct appearance and delay */
+  padding: 40px;
+  margin-top: 50vh; /* Pushes the first text down to start in the middle of the screen */
+  margin-bottom: 50vh; /* Ensures enough scroll space after the last text */
+}
+
+/* Animated border glow (softer colors) */
+.scroll-reveal-content::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  animation: borderGlow 10s ease infinite alternate;
+  z-index: -1;
+  border-radius: 20px;
+  filter: blur(5px); /* Soft glow */
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.reveal-text {
+  font-family: "Impact", "Arial Black", sans-serif; /* GTA-like font */
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--white); /* White text for readability */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Very subtle white glow */
+  opacity: 0; /* Controlled by GSAP */
+  min-height: 30vh; /* Increased height for each text element for longer animation range */
+  display: flex; /* Use flex to center text vertically within its min-height */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Emphasize certain lines with softer white/grey */
+.reveal-text:nth-child(odd) {
+  color: var(--white-light); /* Slightly off-white */
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.08), 0 0 15px rgba(255, 255, 255, 0.05); /* Even more subtle glow */
+}
+
+.reveal-text:last-child {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1); /* Slightly stronger white glow for the question */
+}
+
+.scroll-indicator {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6); /* Subtle white for indicator */
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Subtle glow */
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid rgba(255, 255, 255, 0.6); /* Subtle white for arrow */
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+@media (min-width: 768px) {
+  .reveal-text {
+    font-size: 3rem;
+  }
+  .reveal-text:last-child {
+    font-size: 4.5rem;
+  }
+}

@@ -1,0 +1,45 @@
+/* Variables for consistent theming */
+:root {
+  --purple-vibrant: #8a2be2; /* Blue Violet */
+  --purple-medium: #9370db; /* Medium Purple */
+  --purple-light: #e6e6fa; /* Lavender */
+  --purple-dark: #4b0082; /* Indigo */
+  --purple-darker: #2a004a; /* Even darker purple for background */
+  --pink-accent: #ff69b4; /* Hot Pink */
+  --pink-dark: #e0509b; /* Darker pink for hover */
+  --pink-accent-neon: #ff00ff; /* Brighter, more neon pink/magenta */
+  --text-dark: #333;
+  --white: #ffffff;
+  --white-light: #f0f0f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--purple-darker); /* Darker base background */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.app-container {
+  position: relative;
+  z-index: 1; /* Ensure content is above background */
+}
+
+/* Utility class for scroll animations (initial appearance) */
+.animate-on-scroll {
+  opacity: 0; /* Start hidden */
+}
+::-webkit-scrollbar {
+  width: 10px;
+}

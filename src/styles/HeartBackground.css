@@ -1,0 +1,60 @@
+.heart-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0; /* Ensure it's behind content */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.heart-background-item {
+  position: absolute;
+  width: 45px; /* Base size for hearts */
+  height: 45px;
+  background-color: var(--pink-accent-neon); /* Neon pink hearts */
+  opacity: 0.1; /* Default opacity */
+  transform: rotate(-45deg);
+  border-radius: 50% 0 50% 0;
+  filter: drop-shadow(0 0 3px var(--pink-accent-neon)); /* Ligeramente reducido */
+}
+
+.heart-background-item::before,
+.heart-background-item::after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: var(--pink-accent-neon);
+  border-radius: 50%;
+}
+
+.heart-background-item::before {
+  top: -22.5px;
+  left: 0;
+}
+
+.heart-background-item::after {
+  top: 0;
+  left: 22.5px;
+}
+
+/* Adjust heart size for larger screens */
+@media (min-width: 768px) {
+  .heart-background-item {
+    width: 55px;
+    height: 55px;
+  }
+  .heart-background-item::before,
+  .heart-background-item::after {
+    width: 55px;
+    height: 55px;
+  }
+  .heart-background-item::before {
+    top: -27.5px;
+  }
+  .heart-background-item::after {
+    left: 27.5px;
+  }
+}

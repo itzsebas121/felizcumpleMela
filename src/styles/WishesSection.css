@@ -1,0 +1,124 @@
+.wishes-section {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.wishes-section-title {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 3.8rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px var(--pink-accent-neon), 0 0 20px var(--pink-accent-neon);
+}
+
+.wishes-intro {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  color: var(--white-light);
+}
+
+.wishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wish-card {
+  background-color: rgba(0, 0, 0, 0.3); /* Darker translucent */
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  color: var(--white);
+  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Animated background effect for wish-card (pulsing glow) */
+.wish-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.1), transparent 70%);
+  animation: pulseGradient 8s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes pulseGradient {
+  from {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.wish-card:hover {
+  transform: translateY(-20px) scale(1.03);
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.wish-icon {
+  color: var(--pink-accent-neon);
+  margin-bottom: 20px;
+  animation: bounceIcon 1.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 5px var(--pink-accent-neon));
+}
+
+@keyframes bounceIcon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.wish-card-title {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px var(--purple-vibrant);
+}
+
+.wish-card-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--white-light);
+}
+
+@media (min-width: 768px) {
+  .wishes-section-title {
+    font-size: 5rem;
+  }
+  .wishes-intro {
+    font-size: 1.5rem;
+  }
+  .wishes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wishes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
