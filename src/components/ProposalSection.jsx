@@ -72,12 +72,9 @@ function ProposalSection() {
         </div>
       ) : (
         <div className="thanks-message">
-          <h2 className="thanks-title">¡Gracias, Mela!</h2>
+          <h2 className="thanks-title">¡Gracias!</h2>
           <p className="thanks-text">
-            Mi corazón explota de felicidad. Prometo hacerte la persona más feliz del mundo, llenarte de risas,
-            aventuras inolvidables y un amor que crece cada día. Cada instante a tu lado será una nueva oportunidad para
-            demostrarte lo mucho que significas para mí. ¡Este es el inicio de nuestra hermosa historia! Te quiero con
-            todo mi ser, mi Mela de ojos bonitos.
+            Tiamoooooo, sabes que siempre voy a estar para ti y que juntos podemos con todo. Te quiero mucho.
           </p>
           <HeartHandshake className="thanks-icon" size={80} />
         </div>
